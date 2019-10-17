@@ -61,14 +61,19 @@ def searchOnMaps(endereco):
         return ['ERRO','erro',zoom]
 
 if __name__ == '__main__':
-    f = open("./adress.csv","r")
+    filepath="./address.txt"
+    f = open(filepath,"r")
     content = f.readlines()
     f.close()
     organs = {}
     addresses = set()
+    address=''
     for line in content:
-        data = line.split(';')
-        address = " , ".join([data[2] + ' ' + data[3], data[4], data[5], data[7], data[8]])
+        if filepath[-4:]=='.csv':
+            data = line.split(';')
+            address = " , ".join([data[2] + ' ' + data[3], data[4], data[5], data[7], data[8]])
+        else:
+            address=line
         addresses.add(address)
         if address in organs:
             organs[address] += [line]
