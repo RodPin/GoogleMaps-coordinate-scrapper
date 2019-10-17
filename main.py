@@ -39,7 +39,9 @@ def searchOnMaps(endereco):
         elements[0].click()
         sleep(3)
     url = driver.current_url
-
+    if url[-1]=='z':
+        url.append('/')
+        
     def find_between( s, first, last ):
         try:
             start = s.index( first ) + len( first )
