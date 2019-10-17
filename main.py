@@ -18,7 +18,8 @@ ZoomAdjust = {
     '11':[0.0, 0.0],
     '12':[0.0, 0.0],
     '14':[0.0, 0.0],
-    '15':[0.0000004,-0.0021883],
+    # '15':[0.0000004,0.0021883],
+    '15':[0.0,0.0],
     '16':[0.0, 0.0],
     '17':[0.0000001,0.0021892],
     '18':[0.0,0.0],
@@ -51,7 +52,7 @@ def searchOnMaps(endereco):
     longitude=arrayLatLongZoom[1]
     zoom=arrayLatLongZoom[2][:-1]
     
-    if zoom in ZoomAdjust and int(zoom) > 15:
+    if zoom in ZoomAdjust and int(zoom) >= 15:
         latitude=float(latitude)-float(ZoomAdjust[zoom][0])
         longitude=float(longitude) + float(ZoomAdjust[zoom][1])
         print('LatitudeLongitude: '+ str(latitude)+' '+ str(longitude)+ '     Zoom: '+zoom)
@@ -92,7 +93,10 @@ if __name__ == '__main__':
         for i in range(len(organs[address])):
             address_list = organs[address] 
             string = address_list[i]
-            address_list[i] = string.rstrip('\n')[:-1] + lat_lon[0] + ";" + lat_lon[1]
+            if filepath[-4:]=='.csv':
+                address_list[i] = string.rstrip('\n')[:-1] + lat_lon[0] + ";" + lat_lon[1]
+            else:
+                address_list[i] = string.rstrip('\n')+';'+ lat_lon[0] + ";" + lat_lon[1]
             organs[address] = address_list
             new_lines += organs[address][i] + '\n'
     new_file = open('./adress_lat_lon.txt', 'w')
