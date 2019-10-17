@@ -1,3 +1,5 @@
+Collaborators: @RodPin @gabrielmatos26 @cristianolopessantos
+
 # GoogleMaps-coordinate-scrapper
 
 Using selenium to WebScrapping
