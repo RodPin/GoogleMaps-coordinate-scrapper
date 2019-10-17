@@ -10,6 +10,7 @@ driver = webdriver.Chrome(options=chrome_options, executable_path=DriverConfig.g
 
 driver.get("https://www.google.com.br/maps")
 
+#Adjusts between the center of screen and the marker, according to the zoom
 ZoomAdjust = {
     '4':[0.0, 0.0],
     '6':[0.0 ,0.0],
@@ -32,6 +33,7 @@ def searchOnMaps(endereco):
     digitarEndereco.send_keys(endereco)
     digitarEndereco.send_keys(Keys.ENTER)
     sleep(4)
+    #If google find more than one result,our program will click at the first one
     elements = driver.find_elements_by_class_name('section-result')
     if elements is not None and len(elements) > 0:
         elements[0].click()
@@ -62,6 +64,7 @@ def searchOnMaps(endereco):
         return ['ERRO','erro',zoom]
 
 if __name__ == '__main__':
+    #Here you choose your file name
     filepath="./address.txt"
     f = open(filepath,"r")
     content = f.readlines()
@@ -72,6 +75,7 @@ if __name__ == '__main__':
     for line in content:
         if filepath[-4:]=='.csv':
             data = line.split(';')
+            # Creating the adress from a csv file, edit here in your way
             address = " , ".join([data[2] + ' ' + data[3], data[4], data[5], data[7], data[8]])
         else:
             address=line
