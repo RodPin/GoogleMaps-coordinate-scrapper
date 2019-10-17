@@ -61,7 +61,7 @@ def searchOnMaps(endereco):
         return ['ERRO','erro',zoom]
 
 if __name__ == '__main__':
-    f = open("./adress","r")
+    f = open("./adress.csv","r")
     content = f.readlines()
     f.close()
     organs = {}
