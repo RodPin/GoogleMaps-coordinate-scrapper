@@ -52,7 +52,7 @@ def searchOnMaps(endereco):
     longitude=arrayLatLongZoom[1]
     zoom=arrayLatLongZoom[2][:-1]
     
-    if zoom in ZoomAdjust and int(zoom) >= 15:
+    if zoom in ZoomAdjust and int(zoom) == 17:
         latitude=float(latitude)-float(ZoomAdjust[zoom][0])
         longitude=float(longitude) + float(ZoomAdjust[zoom][1])
         print('LatitudeLongitude: '+ str(latitude)+' '+ str(longitude)+ '     Zoom: '+zoom)
