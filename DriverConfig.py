@@ -13,7 +13,7 @@ class DriverConfig:
         """
         driver_path = ""
         if platform.system() == "Windows":
-            driver_path = r"chromedriver_windows.exe"
+            driver_path = r"chromedriver.exe"
         elif platform.system() == "Linux":
             driver_path = r"chromedriver"
         elif platform.system() == "Darwin":

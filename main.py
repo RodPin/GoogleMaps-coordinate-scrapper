@@ -32,7 +32,7 @@ def searchOnMaps(endereco):
     digitarEndereco.clear()
     digitarEndereco.send_keys(endereco)
     digitarEndereco.send_keys(Keys.ENTER)
-    sleep(4)
+    sleep(5)
     #If google find more than one result,our program will click at the first one
     elements = driver.find_elements_by_class_name('section-result')
     if elements is not None and len(elements) > 0:
@@ -40,7 +40,7 @@ def searchOnMaps(endereco):
         sleep(3)
     url = driver.current_url
     if url[-1]=='z':
-        url.append('/')
+        url+='/'
         
     def find_between( s, first, last ):
         try:
