@@ -59,10 +59,10 @@ def searchOnMaps(endereco):
     if zoom in ZoomAdjust and int(zoom) == 17:
         latitude=float(latitude)-float(ZoomAdjust[zoom][0])
         longitude=float(longitude) + float(ZoomAdjust[zoom][1])
-        print('LatitudeLongitude: '+ str(latitude)+' '+ str(longitude)+ '     Zoom: '+zoom)
+        print(endereco +' Lat: '+ str(round(latitude, 6))+' Long:'+ str(round(longitude, 6)) + '     Zoom: '+zoom)
         return [str(latitude),str(longitude),zoom]
     else:
-        print('LatitudeLongitude: '+ str(latitude)+' '+ str(longitude) + '    Zoom:'+zoom)
+        print(endereco +' Lat: '+ str(round(latitude, 6))+' Long:'+ str(round(longitude, 6)) + '    Zoom:'+zoom)
         return ['ERRO','erro',zoom]
 
 if __name__ == '__main__':
