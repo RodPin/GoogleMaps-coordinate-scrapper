@@ -8,6 +8,8 @@ Currently only working with zoom 17z from google maps
 
 ## How to use it
 
+Install chrome webDriver => https://chromedriver.storage.googleapis.com/index.html?path=81.0.4044.138/
+
 Download Python3 => https://www.python.org/downloads/release/python-380/
 
 Install selenium => `pip install -U selenium`
